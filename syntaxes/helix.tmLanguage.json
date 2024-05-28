@@ -38,7 +38,7 @@
 			"patterns": [
 				{
 					"name": "comment.line.helix",
-					"match": "~~.*$"
+					"match": "//.*$"
 				}
 			]
 		},
@@ -47,14 +47,8 @@
 				{
 					"comment": "block comments",
 					"name": "comment.block.helix",
-					"begin": "~\\*~",
-					"end": "~\\*~"
-				},
-				{
-					"comment": "block comments",
-					"name": "comment.block.helix",
-					"begin": "~\\*",
-					"end": "\\*~"
+					"begin": "/\\*",
+					"end": "\\*/"
 				}
 			]
 		},
@@ -262,7 +256,7 @@
 			"patterns": [
 				{
 					"comment": "numeric types",
-					"match": "\\b(int|float|double|char|string|bool|byte|short|long)\\b",
+					"match": "\\b(int|float|decimal|char|string|bool|byte|i8|u8|i16|u16|i32|u32|i64|u64|i128|u128|f32|f64)\\b",
 					"captures": {
 						"1": {"name": "entity.name.type.numeric.helix"}
 					}

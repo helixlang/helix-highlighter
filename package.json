@@ -2,7 +2,7 @@
   "name": "helix-language",
   "displayName": "Helix Language",
   "description": "Syntax highlighting for Helix",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "dhruvan-kartik",
   "engines": {
     "vscode": "^1.0.0"
