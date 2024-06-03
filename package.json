@@ -2,7 +2,11 @@
   "name": "helix-language",
   "displayName": "Helix Language",
   "description": "Syntax highlighting for Helix",
-  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kneorain/helix-highlighter"
+  },
+  "version": "0.0.5",
   "publisher": "dhruvan-kartik",
   "engines": {
     "vscode": "^1.0.0"

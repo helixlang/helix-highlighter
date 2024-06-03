@@ -149,66 +149,101 @@
 				}
 			]
 		},
-		"keywords": {
-			"patterns": [
-				{
-					"comment": "Control flow keywords",
-					"name": "keyword.control.helix",
-					"match": "\\b(if|else|unless|else\\s+if|or|and|is|not|elif|switch|while|break|continue|return|match|case|default|stop)\\b"
+        "keywords": {
+            "patterns": [
+                {
+                    "comment": "Control flow keywords",
+                    "name": "keyword.control.helix",
+                    "match": "\\b(if|else|unless|for|while|break|continue|case|match|switch|default)\\b"
+                },
+                {
+                    "comment": "Function and method keywords",
+                    "name": "keyword.function.helix",
+                    "match": "\\b(fn|op|return|inline|macro|define)\\b"
+                },
+                {
+                    "comment": "Class and struct keywords",
+                    "name": "keyword.class.helix",
+                    "match": "\\b(class|struct|enum|union|type)\\b"
+                },
+                {
+                    "comment": "Inheritance and polymorphism keywords",
+                    "name": "keyword.inheritance.helix",
+                    "match": "\\b(abstract|interface|derives)\\b"
+                },
+                {
+                    "comment": "Error handling keywords",
+                    "name": "keyword.error.helix",
+                    "match": "\\b(try|panic|catch|finally)\\b"
+                },
+                {
+                    "comment": "Variable declaration keywords",
+                    "name": "keyword.declaration.helix",
+                    "match": "\\b(let|auto|const|global|priv|proc)\\b"
+                },
+                {
+                    "comment": "Access specifiers",
+                    "name": "keyword.access.helix",
+                    "match": "\\b(priv|namespace|proc)\\b"
+                },
+                {
+                    "comment": "Module importing keywords",
+                    "name": "keyword.import.helix",
+                    "match": "\\b(from|using|import|extern|as)\\b"
+                },
+                {
+                    "comment": "Concurrency keywords",
+                    "name": "keyword.concurrency.helix",
+                    "match": "\\b(async|spawn|await|thread)\\b"
+                },
+                {
+                    "comment": "Other keywords",
+                    "name": "keyword.other.helix",
+                    "match": "\\b(is|yield|delete)\\b"
+                },
+                {
+                    "comment": "Operators",
+                    "name": "keyword.operator.helix",
+                    "match": "\\b(\\+|\\-|\\*|\\/|%|@|\\*\\*|\\+-|&|~&|\\||~\\||\\^|~|<<|>>|==|!=|>|<|>=|<=|===|=|\\+=|\\-=|\\*=|\\/=|%=|@=|~=|\\*\\*=|&&=|!&=|\\|\\|=|!\\|=|^^=|&=|~&=|\\|=|~\\|=|\\^=|~\\|=|<<=|>>=|\\+\\+|\\-\\-|!|&&|!&|\\|\\|!\\||^^|\\.\\.|\\.\\.=|->|::)\\b"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "comment": "numeric types",
+                    "match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|usize|isize|int|float|decimal)\\b",
+                    "captures": {
+                        "1": {"name": "entity.name.type.numeric.helix"}
+                    }
+                },
+                {
+                    "comment": "complex types",
+                    "match": "\\b(string|char|bool|list|map|set|tuple)\\b",
+                    "name": "entity.name.type.complex.helix"
+                },
+                {
+                    "comment": "special types",
+                    "match": "\\b(void|null)\\b",
+                    "name": "entity.name.type.special.helix"
+                },
+                {
+					"comment": "user-defined types, possibly with generics",
+					"match": "\\b(class|struct|enum|union|type)\\s+([A-Z][A-Za-z0-9]*)(<(.*)>)?\\b",
+					"captures": {
+						"1": {"name": "keyword.declaration.type.helix"},
+						"2": {"name": "entity.name.type.user-defined.helix"},
+						"4": {"name": "punctuation.definition.generic.helix"},
+						"5": {"name": "entity.name.type.generic.helix"}
+					}
 				},
-				{
-					"comment": "Function and method keywords",
-					"name": "keyword.function.helix",
-					"match": "\\b(fn|macro|return|yield|async|for|await|lambda|delegate)\\b"
-				},
-				{
-					"comment": "Class and struct keywords",
-					"name": "keyword.class.helix",
-					"match": "\\b(class|struct|new|interface|final|union|enum)\\b"
-				},
-				{
-					"comment": "Inheritance and polymorphism keywords",
-					"name": "keyword.inheritance.helix",
-					"match": "\\b(impl|abstract|implements)\\b"
-				},
-				{
-					"comment": "Error handling keywords",
-					"name": "keyword.error.helix",
-					"match": "\\b(try|catch|finally|throw)\\b"
-				},
-				{
-					"comment": "Variable declaration keywords",
-					"name": "keyword.declaration.helix",
-					"match": "\\b(let|compile|const|var|final)\\b"
-				},
-				{
-					"comment": "Access specifiers",
-					"name": "keyword.access.helix",
-					"match": "\\b(public|private|protected)\\b"
-				},
-				{
-					"comment": "Module importing keywords",
-					"name": "keyword.import.helix",
-					"match": "\\b(include|import|as|use|using|from)\\b"
-				},
-				{
-					"comment": "Concurrency keywords",
-					"name": "keyword.concurrency.helix",
-					"match": "\\b(async|await|thread|yield|yield\\s+from)\\b"
-				},
-				{
-					"comment": "Other keywords",
-					"name": "keyword.other.helix",
-					"match": "\\b(in|override|unsafe|auto|deadly|static|ref|type|->)\\b"
-				},
-				{
-					"comment": "Operators",
-					"name": "keyword.operator.helix",
-					"match": "(\\+|\\-|\\*|\\/|\\%|\\+\\+|\\-\\-|\\+=|\\-=|\\*=|\\/=|\\%=|==|!=|>|<|>=|<=|===|!==|&&|\\|\\||!|&|\\||\\^|~|<<|>>|\\.|::|\\?|:|;|,|=>|@|\\#)"
-				}
-			]
-		},
-
+                {
+                    "comment": "type parameters",
+                    "match": "\\b([A-Z][a-z0-9]*)\\b",
+                    "name": "entity.name.type.parameter.helix"
+                }
+            ]
+        },
 		"loops": {
 			"patterns": [
 				{
@@ -249,42 +284,6 @@
 						"1": {"name": "entity.name.namespace.helix"},
 						"2": {"name": "keyword.operator.namespace.helix"}
 					}
-				}
-			]
-		},
-		"types": {
-			"patterns": [
-				{
-					"comment": "numeric types",
-					"match": "\\b(int|float|decimal|char|string|bool|byte|i8|u8|i16|u16|i32|u32|i64|u64|i128|u128|f32|f64)\\b",
-					"captures": {
-						"1": {"name": "entity.name.type.numeric.helix"}
-					}
-				},
-				{
-					"comment": "complex types",
-					"match": "\\b(array|list|tuple|map|set)\\b",
-					"name": "entity.name.type.complex.helix"
-				},
-				{
-					"comment": "special types",
-					"match": "\\b(void|opt)\\b",
-					"name": "entity.name.type.special.helix"
-				},
-				{
-					"comment": "user-defined types, possibly with generics",
-					"match": "\\b(class|struct|enum|union)\\s+([A-Z][A-Za-z0-9_]*)(<)([A-Z][A-Za-z0-9_]*)(>)\\b",
-					"captures": {
-						"1": {"name": "keyword.declaration.type.helix"},
-						"2": {"name": "entity.name.type.user-defined.helix"},
-						"4": {"name": "punctuation.definition.generic.helix"},
-						"5": {"name": "entity.name.type.generic.helix"}
-					}
-				},
-				{
-					"comment": "type parameters",
-					"match": "\\b([A-Z][A-Za-z0-9_]*)\\b",
-					"name": "entity.name.type.parameter.helix"
 				}
 			]
 		},
