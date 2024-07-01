@@ -1,20 +1,20 @@
 {
 	"version": "0.1.1",
 	"scopeName": "source.helix",
-	"name": "Helix",
+	"name": ["Helix", "helix"],
 	"patterns": [
 		{
 			"comment": "boxed slice literal",
 			"includes": ["#block-comments", "#comments", "#class_reference", "#punctuation", "#types"]
 		},
 		{
-			"comment": "in_line_replace",
-			"name": "meta.in_line_replace.rules.helix",
-			"match": "\\b(in_line_replace!)\\s+(([a-z0-9_]+)|([A-Z][a-z0-9_]*))\\s+(\\{)",
+			"comment": "define",
+			"name": "meta.define.rules.helix",
+			"match": "\\b(define!)\\s+(([a-z0-9_]+)|([A-Z][a-z0-9_]*))\\s+(\\{)",
 			"captures": {
-				"1": {"name": "entity.name.function.in_line_replace.rules.helix"},
-				"3": {"name": "entity.name.function.in_line_replace.helix"},
-				"4": {"name": "entity.name.type.in_line_replace.helix"},
+				"1": {"name": "entity.name.function.define.rules.helix"},
+				"3": {"name": "entity.name.function.define.helix"},
+				"4": {"name": "entity.name.type.define.helix"},
 				"5": {"name": "punctuation.brackets.curly.helix"}
 		  	}
 		},
@@ -26,7 +26,7 @@
 		{"include": "#functions"},
 		{"include": "#types"},
 		{"include": "#keywords"},
-		{"include": "#in_line_replace"},
+		{"include": "#define"},
 		{"include": "#namespaces"},
 		{"include": "#punctuation"},
 		{"include": "#strings"},
@@ -111,7 +111,7 @@
 						{"include": "#class_reference"},
 						{"include": "#constants"},
 						{"include": "#functions"},
-						{"include": "#in_line_replace"},
+						{"include": "#define"},
 						{"include": "#namespaces"},
 						{"include": "#punctuation"},
 						{"include": "#strings"},
@@ -139,7 +139,7 @@
 						{"include": "#class_reference"},
 						{"include": "#constants"},
 						{"include": "#functions"},
-						{"include": "#in_line_replace"},
+						{"include": "#define"},
 						{"include": "#namespaces"},
 						{"include": "#punctuation"},
 						{"include": "#strings"},
@@ -199,7 +199,7 @@
                 {
                     "comment": "Other keywords",
                     "name": "keyword.other.helix",
-                    "match": "\\b(is|yield|delete)\\b"
+                    "match": "\\b(is|yield|delete|void|null)\\b"
                 },
                 {
                     "comment": "Operators",
@@ -223,13 +223,8 @@
                     "name": "entity.name.type.complex.helix"
                 },
                 {
-                    "comment": "special types",
-                    "match": "\\b(void|null)\\b",
-                    "name": "entity.name.type.special.helix"
-                },
-                {
 					"comment": "user-defined types, possibly with generics",
-					"match": "\\b(class|struct|enum|union|type)\\s+([A-Z][A-Za-z0-9]*)(<(.*)>)?\\b",
+					"match": "\\b(class|struct|enum|union|type)\\s+([A-Z][A-Za-z0-9_]*)(<(.*)>)?\\b",
 					"captures": {
 						"1": {"name": "keyword.declaration.type.helix"},
 						"2": {"name": "entity.name.type.user-defined.helix"},
@@ -239,7 +234,7 @@
 				},
                 {
                     "comment": "type parameters",
-                    "match": "\\b([A-Z][a-z0-9]*)\\b",
+                    "match": "\\b([A-Z][A-Za-z0-9_]*)(<(.*)>)?\\b",
                     "name": "entity.name.type.parameter.helix"
                 }
             ]
@@ -262,15 +257,15 @@
 				}
 			]
 		},
-		"in_line_replace": {
+		"define": {
 			"patterns": [
 				{
-					"comment": "in_line_replace",
-					"name": "meta.in_line_replace.helix",
+					"comment": "define",
+					"name": "meta.define.helix",
 					"match": "(([a-z_][A-Za-z0-9_]*!)|([A-Z_][A-Za-z0-9_]*!))",
 					"captures": {
-						"2": {"name": "entity.name.function.in_line_replace.helix"},
-						"3": {"name": "entity.name.type.in_line_replace.helix"}
+						"2": {"name": "entity.name.function.define.helix"},
+						"3": {"name": "entity.name.type.define.helix"}
 					}
 				}
 			]
