@@ -1,7 +1,7 @@
 {
-	"version": "0.1.1",
+	"version": "0.2.1",
 	"scopeName": "source.helix",
-	"name": ["Helix", "helix"],
+	"name": "helix",
 	"patterns": [
 		{
 			"comment": "boxed slice literal",
@@ -72,7 +72,7 @@
 				},
 				{
 				  	"name": "constant.language.bool.helix",
-				  	"match": "\\b(true|false)\\b"
+				  	"match": "\\b(true|false|null|nullptr)\\b"
 				}
 			]
 		},
@@ -120,33 +120,35 @@
 					]
 				},
 				{
-					"comment": "function/method calls, chaining",
-					"name": "meta.function.call.helix",
-					"begin": "((?:r#(?!self|super))?[A-Za-z0-9_]+)(\\()",
-					"beginCaptures": {
-						"1": {"name": "entity.name.function.helix"},
-						"2": {"name": "punctuation.brackets.round.helix"}
-					},
-					"end": "\\)",
-					"endCaptures": {
-						"0": {"name": "punctuation.brackets.round.helix"}
-					},
-					"patterns": [
-						{"include": "#block-comments"},
-						{"include": "#comments"},
-						{"include": "#attributes"},
-						{"include": "#keywords"},
-						{"include": "#class_reference"},
-						{"include": "#constants"},
-						{"include": "#functions"},
-						{"include": "#define"},
-						{"include": "#namespaces"},
-						{"include": "#punctuation"},
-						{"include": "#strings"},
-						{"include": "#types"},
-						{"include": "#variables"}
-					]
-				}
+                    "comment": "function/method calls, chaining, and generic function calls",
+                    "name": "meta.function.call.helix",
+                    "begin": "((?:r#(?!self|super))?[A-Za-z0-9_]+)(<(.*)>)?(\\()",
+                    "beginCaptures": {
+                        "1": {"name": "entity.name.function.helix"},
+                        "2": {"name": "punctuation.definition.generic.helix"},
+						"3": {"name": "entity.name.type.generic.helix"},
+                        "4": {"name": "punctuation.brackets.round.helix"}
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {"name": "punctuation.brackets.round.helix"}
+                    },
+                    "patterns": [
+                        {"include": "#block-comments"},
+                        {"include": "#comments"},
+                        {"include": "#attributes"},
+                        {"include": "#keywords"},
+                        {"include": "#class_reference"},
+                        {"include": "#constants"},
+                        {"include": "#functions"},
+                        {"include": "#define"},
+                        {"include": "#namespaces"},
+                        {"include": "#punctuation"},
+                        {"include": "#strings"},
+                        {"include": "#types"},
+                        {"include": "#variables"}
+                    ]
+                }
 			]
 		},
         "keywords": {
@@ -169,7 +171,7 @@
                 {
                     "comment": "Inheritance and polymorphism keywords",
                     "name": "keyword.inheritance.helix",
-                    "match": "\\b(abstract|interface|derives)\\b"
+                    "match": "\\b(abstract|interface|derives|where)\\b"
                 },
                 {
                     "comment": "Error handling keywords",
@@ -199,7 +201,12 @@
                 {
                     "comment": "Other keywords",
                     "name": "keyword.other.helix",
-                    "match": "\\b(is|yield|delete|void|null)\\b"
+                    "match": "\\b(is|yield|delete)\\b"
+                },
+                {
+                    "comment": "Primitive Type keywords",
+                    "name": "keyword.primitive.helix",
+                    "match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|usize|isize|void)\\b"
                 },
                 {
                     "comment": "Operators",
@@ -212,7 +219,7 @@
             "patterns": [
                 {
                     "comment": "numeric types",
-                    "match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|usize|isize|int|float|decimal)\\b",
+                    "match": "\\b(int|float|decimal)\\b",
                     "captures": {
                         "1": {"name": "entity.name.type.numeric.helix"}
                     }
