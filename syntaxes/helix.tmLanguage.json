@@ -156,62 +156,62 @@
                 {
                     "comment": "Control flow keywords",
                     "name": "keyword.control.helix",
-                    "match": "\\b(if|else|unless|for|while|break|continue|case|match|switch|default)\\b"
+                    "match": "\\b(break|case|continue|default|else|for|if|match|switch|unless|while)\\b"
                 },
                 {
                     "comment": "Function and method keywords",
                     "name": "keyword.function.helix",
-                    "match": "\\b(fn|op|return|inline|macro|define)\\b"
+                    "match": "\\b(async|define|fn|inline|macro|op|return|yield)\\b"
                 },
                 {
                     "comment": "Class and struct keywords",
                     "name": "keyword.class.helix",
-                    "match": "\\b(class|struct|enum|union|type)\\b"
+                    "match": "\\b(class|enum|struct|type|union)\\b"
                 },
                 {
                     "comment": "Inheritance and polymorphism keywords",
                     "name": "keyword.inheritance.helix",
-                    "match": "\\b(abstract|interface|derives|where)\\b"
+                    "match": "\\b(abstract|derives|interface|requires)\\b"
                 },
                 {
                     "comment": "Error handling keywords",
                     "name": "keyword.error.helix",
-                    "match": "\\b(try|panic|catch|finally)\\b"
+                    "match": "\\b(catch|finally|panic|try|test)\\b"
                 },
                 {
                     "comment": "Variable declaration keywords",
                     "name": "keyword.declaration.helix",
-                    "match": "\\b(let|auto|const|global|priv|proc)\\b"
+                    "match": "\\b(const|let|shared)\\b"
                 },
                 {
                     "comment": "Access specifiers",
                     "name": "keyword.access.helix",
-                    "match": "\\b(priv|namespace|proc)\\b"
+                    "match": "\\b(mod|priv|pub|prot|intl)\\b"
                 },
                 {
                     "comment": "Module importing keywords",
                     "name": "keyword.import.helix",
-                    "match": "\\b(from|using|import|extern|as)\\b"
+                    "match": "\\b(as|ffi|import)\\b"
                 },
                 {
                     "comment": "Concurrency keywords",
                     "name": "keyword.concurrency.helix",
-                    "match": "\\b(async|spawn|await|thread)\\b"
+                    "match": "\\b(atomic|await|spawn|thread)\\b"
                 },
                 {
                     "comment": "Other keywords",
                     "name": "keyword.other.helix",
-                    "match": "\\b(is|yield|delete)\\b"
+                    "match": "\\b(delete|is)\\b"
                 },
                 {
                     "comment": "Primitive Type keywords",
                     "name": "keyword.primitive.helix",
-                    "match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|usize|isize|void)\\b"
+                    "match": "\\b(f32|f64|i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize|void)\\b"
                 },
                 {
                     "comment": "Operators",
                     "name": "keyword.operator.helix",
-                    "match": "\\b(\\+|\\-|\\*|\\/|%|@|\\*\\*|\\+-|&|~&|\\||~\\||\\^|~|<<|>>|==|!=|>|<|>=|<=|===|=|\\+=|\\-=|\\*=|\\/=|%=|@=|~=|\\*\\*=|&&=|!&=|\\|\\|=|!\\|=|^^=|&=|~&=|\\|=|~\\|=|\\^=|~\\|=|<<=|>>=|\\+\\+|\\-\\-|!|&&|!&|\\|\\|!\\||^^|\\.\\.|\\.\\.=|->|::)\\b"
+                    "match": "\\b(\\+|\\+\\+|\\+=|\\+-|\\-|\\-\\-|\\-=|\\*|\\*=|\\/|\\/=|%|%=|&|&=|&&|&&=|@|@=|\\^|\\^=|^^|^^=|~|~&|~&=|~\\||~\\|=|\\||\\|=|\\|\\||\\|\\|=|!|!=|!&|!&=|!\\||!\\|=|<<|<<=|>>|>>=|==|===|>|>=|<|<=|\\.\\.|\\.\\.=|::|->|=|\\*\\*|\\*\\*=)\\b"
                 }
             ]
         },
