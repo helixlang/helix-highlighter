@@ -156,7 +156,7 @@
                 {
                     "comment": "Control flow keywords",
                     "name": "keyword.control.helix",
-                    "match": "\\b(break|case|continue|default|else|for|if|match|switch|unless|while)\\b"
+                    "match": "\\b(break|case|continue|default|else|for|if|match|switch|unless|in|while)\\b"
                 },
                 {
                     "comment": "Function and method keywords",
@@ -181,12 +181,12 @@
                 {
                     "comment": "Variable declaration keywords",
                     "name": "keyword.declaration.helix",
-                    "match": "\\b(const|let|shared)\\b"
+                    "match": "\\b(const|let|shared|final)\\b"
                 },
                 {
                     "comment": "Access specifiers",
                     "name": "keyword.access.helix",
-                    "match": "\\b(mod|priv|pub|prot|intl)\\b"
+                    "match": "\\b(module|priv|pub|prot)\\b"
                 },
                 {
                     "comment": "Module importing keywords",
@@ -201,7 +201,7 @@
                 {
                     "comment": "Other keywords",
                     "name": "keyword.other.helix",
-                    "match": "\\b(delete|is)\\b"
+                    "match": "\\b(delete|is|unsafe)\\b"
                 },
                 {
                     "comment": "Primitive Type keywords",
