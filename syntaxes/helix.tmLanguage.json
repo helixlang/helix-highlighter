@@ -181,7 +181,7 @@
                 {
                     "comment": "Variable declaration keywords",
                     "name": "keyword.declaration.helix",
-                    "match": "\\b(const|let|shared|final)\\b"
+                    "match": "\\b(eval|let|shared|const)\\b"
                 },
                 {
                     "comment": "Access specifiers",
