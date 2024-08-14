@@ -1,29 +1,63 @@
 {
-  "name": "helix-language",
-  "displayName": "Helix Language",
-  "description": "Syntax highlighting for Helix",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kneorain/helix-highlighter"
-  },
-  "version": "0.0.75",
-  "publisher": "dhruvan-kartik",
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": ["Programming Languages"],
-  "contributes": {
-    "languages": [{
-      "id": "helix",
-      "aliases": ["Helix", "hlx"],
-      "extensions": [".hlx"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "helix",
-      "scopeName": "source.helix",
-      "path": "./syntaxes/helix.tmLanguage.json"
-    }]
-  }
+    "name": "helix-language",
+    "displayName": "Helix Language",
+    "description": "Syntax highlighting for Helix",
+    "icon": "./icons/helix-v3.ico",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kneorain/helix-highlighter"
+    },
+    "version": "0.1.0",
+    "publisher": "dhruvan-kartik",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "helix",
+                "aliases": [
+                    "Helix",
+                    "hlx",
+                    "helix"
+                ],
+                "extensions": [
+                    ".hlx",
+                    ".helix",
+                    ".hdx"
+                ],
+                "icon": {
+                    "light": "./icons/file-helix-v3.svg",
+                    "dark": "./icons/file-helix-v3.svg"
+                },
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "helix",
+                "scopeName": "source.helix",
+                "path": "./syntaxes/helix.tmLanguage.json"
+            }
+        ],
+        "breakpoints": [
+            {
+                "language": "helix"
+            }
+        ],
+        "configurationDefaults": {
+            "[helix]": {
+                "editor.tabSize": 4,
+                "editor.insertSpaces": true,
+                "files.associations": {
+                    "*.hlx": "helix",
+                    "*.helix": "helix",
+                    "*.hdx": "helix"
+                }
+            }
+        }
+    }
 }
-
