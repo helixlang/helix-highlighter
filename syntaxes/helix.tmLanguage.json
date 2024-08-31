@@ -10,16 +10,13 @@
             "include": "#comments"
         },
         {
-            "include": "#define"
-        },
-        {
             "include": "#attributes"
         },
         {
-            "include": "#constants"
+            "include": "#class_reference"
         },
         {
-            "include": "#class_reference"
+            "include": "#constants"
         },
         {
             "include": "#functions"
@@ -29,6 +26,9 @@
         },
         {
             "include": "#keywords"
+        },
+        {
+            "include": "#define"
         },
         {
             "include": "#namespaces"
@@ -401,18 +401,20 @@
         "define": {
             "patterns": [
                 {
-					"comment": "Define invocation with optional parameters",
+                    "comment": "Define invocation with optional parameters",
                     "name": "meta.define.invocation.helix",
-					"match": "\\s?([a-z_][A-Za-z0-9_]+!)",
-					"captures": {
-						"1": {"name": "entity.name.function.define.helix"}
-					}
-				},
+                    "match": "\\s?([a-z_][A-Za-z0-9_]+!)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.function.define.helix"
+                        }
+                    }
+                },
                 {
                     "comment": "Define macro with optional parameter list and complex body",
                     "name": "meta.define.macro.helix",
                     "begin": "\\b(define)\\s+([a-z0-9_]+[A-Za-z0-9_]*!)(\\s*\\()?",
-                    "end": "(\\))?\\s*(\\{|:)",
+                    "end": "\\)\\s*->\\s*([a-z0-9_]+)\\s*\\{",
                     "beginCaptures": {
                         "1": {
                             "name": "keyword.control.define.helix"
