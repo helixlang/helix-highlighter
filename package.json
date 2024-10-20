@@ -1,20 +1,23 @@
 {
     "name": "helix-language",
     "displayName": "Helix Language",
-    "description": "Syntax highlighting for Helix",
+    "description": "Syntax highlighting and full language support for Helix",
     "icon": "icons/helix-v3.ico",
     "repository": {
         "type": "git",
         "url": "https://github.com/kneorain/helix-highlighter"
     },
     "version": "0.1.1-alpha-0231",
-    "publisher": "dhruvan-kartik",
+    "publisher": "dhruvan & arnav",
     "engines": {
-        "vscode": "^1.0.0"
+        "vscode": "^1.94.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "activationEvents": [
+    ],
+    "main": "./src/extension.js",
     "contributes": {
         "languages": [
             {
@@ -27,7 +30,8 @@
                 "extensions": [
                     ".hlx",
                     ".helix",
-                    ".hdx"
+                    ".hdx",
+                    ".hdlx"
                 ],
                 "icon": {
                     "light": "./icons/file-helix-v3.svg",
@@ -42,22 +46,18 @@
                 "scopeName": "source.helix",
                 "path": "./syntaxes/helix.tmLanguage.json"
             }
-        ],
-        "breakpoints": [
-            {
-                "language": "helix"
-            }
-        ],
-        "configurationDefaults": {
-            "[helix]": {
-                "editor.tabSize": 4,
-                "editor.insertSpaces": true,
-                "files.associations": {
-                    "*.hlx": "helix",
-                    "*.helix": "helix",
-                    "*.hdx": "helix"
-                }
-            }
-        }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint src --ext js",
+        "start": "node ./src/extension.js"
+    },
+    "devDependencies": {
+        "eslint": "^8.28.0",
+        "mocha": "^10.1.0",
+        "nodemon": "^2.0.20"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^8.1.0"
     }
 }
