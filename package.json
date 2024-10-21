@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/kneorain/helix-highlighter"
     },
-    "version": "0.1.1-alpha-0231",
+    "version": "0.1.2-alpha-0031",
     "publisher": "dhruvan & arnav",
     "engines": {
         "vscode": "^1.94.0"
@@ -15,8 +15,7 @@
     "categories": [
         "Programming Languages"
     ],
-    "activationEvents": [
-    ],
+    "activationEvents": [],
     "main": "./src/extension.js",
     "contributes": {
         "languages": [

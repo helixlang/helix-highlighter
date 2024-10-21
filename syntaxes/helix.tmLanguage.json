@@ -47,6 +47,43 @@
         }
     ],
     "repository": {
+        "expressions": {
+            "patterns": [
+                {
+                    "include": "#class_reference"
+                },
+                {
+                    "include": "#constants"
+                },
+                {
+                    "include": "#functions"
+                },
+                {
+                    "include": "#types"
+                },
+                {
+                    "include": "#keywords"
+                },
+                {
+                    "include": "#define"
+                },
+                {
+                    "include": "#namespaces"
+                },
+                {
+                    "include": "#punctuation"
+                },
+                {
+                    "include": "#strings"
+                },
+                {
+                    "include": "#variables"
+                },
+                {
+                    "include": "#generics"
+                }
+            ]
+        },
         "comments": {
             "patterns": [
                 {
@@ -510,12 +547,77 @@
                 }
             ]
         },
+        "fstring-formatting-braces": {
+            "patterns": [
+                {
+                    "comment": "f-string formatting braces",
+                    "name": "punctuation.section.embedded.helix",
+                    "begin": "\\{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.embedded.begin.helix"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.embedded.end.helix"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#expressions"
+                        }
+                    ]
+                }
+            ]
+		},
+        "f-strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.helix",
+                    "begin": "(\\b[fF])([bBuU])?((['\"]))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.f-string.helix"
+                        },
+                        "2": {
+                            "name": "keyword.other.f-string.helix"
+                        },
+                        "3": {
+                            "name": "punctuation.definition.string.helix"
+                        }
+                    },
+                    "end": "(\\3)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.helix"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#fstring-formatting-braces"
+                        },
+                        {
+                            "include": "#escapes"
+                        },
+                        {
+                            "include": "#interpolations"
+                        }
+                    ]
+                }
+                
+            ]
+        },
         "strings": {
             "patterns": [
                 {
+                    "include": "#f-strings"
+                },
+                {
                     "comment": "double-quoted strings and byte strings",
                     "name": "string.quoted.double.helix",
-                    "begin": "(b|r|f|u|rf|br|uf)?(\")",
+                    "begin": "(\")",
                     "beginCaptures": {
                         "1": {
                             "name": "string.quoted.byte.raw.helix"
@@ -542,7 +644,7 @@
                 {
                     "comment": "characters and bytes",
                     "name": "string.quoted.single.char.helix",
-                    "begin": "(b|r|f|u|rf|br|uf)?(')",
+                    "begin": "(')",
                     "beginCaptures": {
                         "1": {
                             "name": "string.quoted.byte.raw.helix"
