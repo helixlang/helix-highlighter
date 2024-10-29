@@ -299,17 +299,17 @@
                 {
                     "comment": "Class and struct keywords",
                     "name": "keyword.class.helix",
-                    "match": "\\b(class|enum|struct|type|union)\\b"
+                    "match": "\\b(class|enum|struct|type|extend)\\b"
                 },
                 {
                     "comment": "Inheritance and polymorphism keywords",
                     "name": "keyword.inheritance.helix",
-                    "match": "\\b(abstract|derives|interface|requires|has)\\b"
+                    "match": "\\b(extend|derives|interface|requires|has)\\b"
                 },
                 {
                     "comment": "Error handling keywords",
                     "name": "keyword.error.helix",
-                    "match": "\\b(catch|finally|panic|try|test)\\b"
+                    "match": "\\b(catch|finally|panic|try|test|assert)\\b"
                 },
                 {
                     "comment": "Variable declaration keywords",

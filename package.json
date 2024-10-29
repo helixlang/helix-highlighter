@@ -7,7 +7,7 @@
         "type": "git",
         "url": "https://github.com/kneorain/helix-highlighter"
     },
-    "version": "0.1.2-alpha-0031",
+    "version": "0.1.2-alpha-0033",
     "publisher": "dhruvan & arnav",
     "engines": {
         "vscode": "^1.94.0"
