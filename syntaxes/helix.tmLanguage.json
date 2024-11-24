@@ -294,7 +294,7 @@
                 {
                     "comment": "Function and method keywords",
                     "name": "keyword.function.helix",
-                    "match": "\\b(async|define|fn|inline|macro|op|return|yield)\\b"
+                    "match": "\\b(async|fn|inline|macro|op|return|yield)\\b"
                 },
                 {
                     "comment": "Class and struct keywords",
@@ -450,7 +450,7 @@
                 {
                     "comment": "Define macro with optional parameter list and complex body",
                     "name": "meta.define.macro.helix",
-                    "begin": "\\b(define)\\s+([a-z0-9_]+[A-Za-z0-9_]*!)(\\s*\\()?",
+                    "begin": "\\b(macro)\\s+([a-z0-9_]+[A-Za-z0-9_]*!)(\\s*\\()?",
                     "end": "\\)\\s*->\\s*([a-z0-9_]+)\\s*\\{",
                     "beginCaptures": {
                         "1": {
