@@ -5,7 +5,7 @@
     "icon": "icons/helix-v3.ico",
     "repository": {
         "type": "git",
-        "url": "https://github.com/kneorain/helix-highlighter"
+        "url": "https://github.com/helixlang/helix-highlighter"
     },
     "version": "0.1.4-alpha-1218",
     "publisher": "dhruvan & arnav",
